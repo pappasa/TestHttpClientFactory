@@ -1,15 +1,17 @@
 # TestHttpClientFactory
-Tests IHttpClientFactory in COM+
+
+Tests IHttpClientFactory in COM+.  
+
 The solution contains three projects:
-1. WebApplication1
+1. WebApplication1  
    Default .NET CORE 3.1 Web Api template (with the weather forecast)
-2. ApiAccess
+2. ApiAccess  
    .NET 4.7 Class library, containing the COM+ class APIAccess which creates an IHttpClientFactory and provides
    the method HttpClientGetAsync, to make GET requests to a URI. In the post build events, the assembly is
    registered in the GAC with gacutil and in COM+ (Component Services) with regsvcs. In the Nuget package manager,
    the Nuget package Microsoft.Extensions.Http version 7.0.0 was installed, which installed the dlls found in the
    solution's packages folder. The dlls are registered in the GAC with the solution's Register_GAC.bat.
-3. TestApiAccess
+3. TestApiAccess  
    .NET 4.7 Console application calling ApiAccess.HttpClientGetAsync. The following exception is thrown:
    
    Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
